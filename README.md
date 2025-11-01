@@ -1,40 +1,66 @@
 <h1 align="center">🤖 Zihin Sağlığı Destek Asistanı 🤖</h1>
 
 <p align="center">
-<a href="#"><img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python"></a>
-<a href="#"><img alt="Framework" src="https://img.shields.io/badge/LangChain-b504f4?style=for-the-badge&logo=langchain"></a>
-<a href="#"><img alt="Model" src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google"></a>
+<a href="#kurulum"><img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python"></a>
+<a href="#mimari"><img alt="Framework" src="https://img.shields.io/badge/LangChain-b504f4?style=for-the-badge&logo=langchain"></a>
+<a href="#mimari"><img alt="Model" src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google"></a>
 </p>
 
 <p align="center">
-<i> Akbank GenAI Bootcamp kapsamında, RAG mimarisi ile geliştirilmiş empatik bir chatbot. </i>
+<i>Akbank GenAI Bootcamp kapsamında, RAG mimarisi ile geliştirilmiş empatik bir chatbot.</i>
 </p>
 
 
-🎯 1. Projenin Amacı
+
+
+## 📌 İçindekiler
+
+
+- [🎯 Projenin Amacı](#-projenin-amacı)
+- [✨ Temel Özellikler](#-temel-özellikler)
+- [📚 Veri Seti](#-veri-seti)
+- [🛠️ Kullanılan Yöntemler ve Mimari](#%EF%B8%8F-kullanılan-yöntemler-ve-mimari)
+- [🏗️ Proje Yapısı](#%EF%B8%8F-proje-yapısı)
+- [🚀 Kurulum ve Çalıştırma Kılavuzu](#-kurulum-ve-çalıştırma-kılavuzu)
+- [🧪 Test ve Geliştirme](#-test-ve-geliştirme)
+- [🤝 Katkıda Bulunma](#-katkıda-bulunma)
+- [📄 Lisans](#-lisans)
+
+
+## 🎯 Projenin Amacı
 
 Projenin temel hedefi, zihin sağlığı konularında güvenilir ve destekleyici bir diyalog ortamı sunmaktır. Chatbot, kullanıcılara tıbbi tavsiye vermeden, yalnızca sağlanan veri setindeki bilgiler doğrultusunda, şefkatli ve yargılayıcı olmayan bir üslupla yanıtlar üretir. Bu proje, RAG mimarisinin ve modern dil modellerinin (LLM) pratik bir uygulamasını sergilemeyi amaçlamaktadır.
 
 
-📚 2. Veri Seti Hakkında Bilgi
-
-Projede, Hugging Face platformunda halka açık olarak sunulan aneerajsk/medchat_mental veri seti kullanılmıştır.
- 
-
-Veri Seti İçeriği:  Bu veri seti, zihin sağlığı, psikolojik durumlar, semptomlar ve başa çıkma stratejileri gibi çeşitli konuları kapsayan metinler içermektedir.
-
-Hazırlık Süreci:  Veri seti, RAG mimarisine uygun hale getirmek için aşağıdaki adımlardan geçirilmiştir:
-
-HuggingFaceDatasetLoader kullanılarak veri seti doğrudan LangChain Document formatında yüklenmiştir.
-
-RecursiveCharacterTextSplitter ile metinler, anlamsal bütünlüğü koruyacak şekilde daha küçük ve yönetilebilir parçalara (chunk) ayrılmıştır.
+## ✨ Temel Özellikler
 
 
-🛠️ 3. Kullanılan Yöntemler ve Çözüm Mimarisi
+- 🧠 **Empatik Yanıtlar:** Kullanıcıları yargılamadan, destekleyici bir tonla cevap üretir.
+- 🔎 **RAG Tabanlı Mimari:** Dış kaynaklı bilgileri kullanarak daha doğru ve bağlama uygun sonuçlar üretir.
+- ⚙️ **Modüler Kod Yapısı:** Gömme, getirici ve üretici bileşenler ayrı dosyalarda yönetilir.
+- ☁️ **Google Colab Desteği:** Çevrimiçi çalıştırma için hazır Jupyter defteri içerir.
+- 🧩 **Kolay Özelleştirme:** Model, veri seti ve prompt bileşenleri hızla güncellenebilir.
+
+
+## 📚 Veri Seti
+
+
+**Veri Seti İçeriği:** Zihin sağlığı, psikolojik durumlar, semptomlar ve başa çıkma stratejileri gibi çeşitli konuları kapsayan metinler içerir.
+
+
+ **Hazırlık Süreci:** Veri seti, RAG mimarisine uygun hale getirmek için aşağıdaki adımlardan geçirilmiştir:
+
+
+1. HuggingFaceDatasetLoader ile veri seti LangChain `Document` formatında yüklenir.
+2. `RecursiveCharacterTextSplitter` ile metinler, anlamsal bütünlüğü koruyacak şekilde küçük parçalara ayrılır.
+3. Her bir parça embedding modeli ile vektör uzayına taşınır ve FAISS üzerine indekslenir.
+
+
+## 🛠️ Kullanılan Yöntemler ve Mimari
+
 
 Proje, güncel bir RAG (Retrieval-Augmented Generation) mimarisi üzerine inşa edilmiştir. Bu mimari, dil modelinin yanıtlarını harici bir bilgi kaynağı ile zenginleştirerek daha doğru ve bağlama uygun sonuçlar üretmesini sağlar.
 
-Kullanılan Teknolojiler
 
 <p>
 <img src="https://img.shields.io/badge/LangChain-b504f4?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain">
@@ -46,84 +72,77 @@ Kullanılan Teknolojiler
 </p>
 
 
+### Çalışma Akışı
+
+1. **Yükleme & Parçalama:** Zihin sağlığı veri seti (`aneerajsk/medchat_mental`) yüklenir ve anlamsal bütünlük korunarak parçalara ayrılır.
+2. **Gömme (Embedding):** `all-MiniLM-L6-v2` modeli ile her parça vektörel temsile dönüştürülür.
+3. **İndeksleme:** Vektörler FAISS veritabanına yüklenir ve hızlı arama için indekslenir.
+4. **Sorgu & Getirme:** Kullanıcı sorgusu embedding'e dönüştürülerek en ilgili bağlam parçaları seçilir.
+5. **Zenginleştirme & Yanıt:** Seçilen bağlam parçaları ile birlikte Gemini modeline gönderilen prompt, bağlama duyarlı ve empatik yanıtlar üretir.
+
+## 🏗️ Proje Yapısı
+
+```text
+mental-health-chatbot/
+├── app.py                # Gradio arayüzünü başlatır
+├── embedder.py          # Embedding modelinin kurulumu ve kullanımı
+├── generator.py         # LLM (Gemini) ile yanıt üretimi
+├── retriever.py         # FAISS üzerinden bağlam getirme mantığı
+├── mhcb.ipynb           # Colab üzerinde çalıştırılabilir not defteri
+├── requirements.txt     # Proje bağımlılıkları
+└── README.md            # Bu dosya
+```
+
+Bu yapı sayesinde her bileşen ayrı bir dosyada tutulur ve geliştirme süreci modüler hale getirilir.
+
+## 🚀 Kurulum ve Çalıştırma Kılavuzu 
+
+Projeyi ister Google Colab üzerinde ister yerelde çalıştırabilirsiniz.
+
+### 🔑 Google Colab Üzerinde (Önerilen)
+
+1. `mhcb.ipynb` dosyasını Google Colab'de açın.
+2. Sol menüden **Anahtar (🔑)** simgesine tıklayarak yeni bir gizli bilgi ekleyin.
+3. İsim olarak `GEMINI_API_KEY` girin ve Google AI Studio'dan aldığınız API anahtarınızı yapıştırın.
+4. **Runtime ▸ Run all** seçeneği ile tüm hücreleri sırasıyla çalıştırın (gerekli kütüphaneler otomatik kurulacaktır).
+5. Son hücre tamamlandığında `.gradio.live` uzantılı bir bağlantı oluşur; arayüze bu link üzerinden erişebilirsiniz.
+
+### 💻 Lokal Üzerinde
+
+1. **Depoyu klonlayın:**
+   ```bash
+   git clone https://github.com/Ms-Crocus/mental-health-chatbot.git
+   cd mental-health-chatbot
+   ```
+2. **Gerekli kütüphaneleri yükleyin:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **API anahtarınızı ayarlayın:** Proje kök dizininde `.env` dosyası oluşturup aşağıdaki değeri ekleyin:
+   ```env
+   GEMINI_API_KEY="BURAYA_API_ANAHTARINIZI_GIRIN"
+   ```
+   > `.env` dosyasının `.gitignore` içinde yer aldığından emin olun.
+4. **Uygulamayı başlatın:**
+   ```bash
+   python app.py
+   ```
+   Komut, varsayılan olarak `http://127.0.0.1:7860` adresinde çalışan bir Gradio arayüzü başlatacaktır.
+
+## 🧪 Test ve Geliştirme
+
+- Kod değişikliklerinden sonra `python -m compileall` ile temel sözdizimi kontrolleri yapılabilir.
+- Bileşenleri modüler olarak geliştirmek için `embedder.py`, `retriever.py` ve `generator.py` dosyaları ayrı ayrı test edilebilir.
+- Deneysel prompt güncellemelerini `app.py` içindeki arayüz fonksiyonları veya `mhcb.ipynb` defteri üzerinden hızlıca doğrulayabilirsiniz.
+
+## 🤝 Katkıda Bulunma
+
+1. Fork alın ve yeni bir dal oluşturun.
+2. Değişikliklerinizi yapıp test edin.
+3. Açıklayıcı commit mesajları ile katkınızı gönderin.
+4. Pull Request oluştururken yaptığınız değişiklikleri detaylıca anlatan bir açıklama ekleyin.
 
 
-<details>
-<summary><b>➡️ Detaylı Çalışma Akışını Görmek İçin Tıklayın</b></summary>
-<p>
-<ol>
-<li><b>Yükleme & Parçalama:</b> Zihin sağlığı veri seti (<code>aneerajsk/medchat_mental</code>) yüklenir ve metinler, anlamsal bütünlüğü koruyacak şekilde daha küçük parçalara (<code>chunk</code>) ayrılır.</li>
-<li><b>Gömme (Embedding):</b> Her bir metin parçası, <code>all-MiniLM-L6-v2</code> modeli kullanılarak anlamsal bir vektöre dönüştürülür. Bu vektörler, metnin anlamını sayısal olarak temsil eder.</li>
-<li><b>İndeksleme:</b> Oluşturulan bu vektörler, hızlı ve verimli bir şekilde aranabilmeleri için FAISS vektör veritabanına yüklenir ve indekslenir.</li>
-<li><b>Sorgu & Getirme (Query & Retrieval):</b> Kullanıcı bir soru sorduğunda, bu soru da aynı embedding modeli ile bir vektöre dönüştürülür. FAISS, bu sorgu vektörüne en çok benzeyen metin parçalarını (<code>context</code>) veritabanından bulur ve getirir.</li>
-<li><b>Zenginleştirme & Oluşturma (Augment & Generation):</b> Kullanıcının orijinal sorusu ile veritabanından getirilen ilgili metin parçaları (<code>context</code>), Gemini modeline gönderilecek olan bir prompt şablonuna yerleştirilir.</li>
-<li><b>Yanıt:</b> Gemini, bu zenginleştirilmiş prompt'u kullanarak, hem kullanıcının sorusuna cevap veren hem de sağlanan bağlama sadık kalan, tutarlı ve empatik bir yanıt üretir.</li>
-</ol>
-</p>
-</details>
+## 📄 Lisans
 
-<p align="right"><a href="#-i̇çindekiler">🔝 Başa dön</a></p>
-
-🚀 4. Çalıştırma Kılavuzu
-
-Projeyi çalıştırmak için aşağıdaki adımları izleyebilirsiniz.
-
- 🔑 Google Colab Üzerinde (Önerilen)
-
-1. Proje ipynb dosyasını Google Colab'de açın.
-
-2. Sol taraftaki menüden Anahtar (🔑) simgesine tıklayın ve "Yeni sır ekle" seçeneğini kullanın.
-
-3. İsim olarak GEMINI_API_KEY girin ve Değer olarak Google AI Studio'dan aldığınız API anahtarınızı yapıştırın.
-
-4. "Tümünü çalıştır" seçeneği ile tüm hücreleri başlatın. Gerekli kütüphaneler otomatik olarak kurulacaktır.
-
-5. Son hücre çalıştığında, herkese açık bir .gradio.live linki oluşturulur. Bu link üzerinden arayüze erişebilirsiniz.
-
-
-💻 Lokal üzerinde
-
-Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
-
-1.  **Depoyu klonlayın:**
-    ```bash
-    git clone [https://github.com/Ms-Crocus/mental-health-chatbot.git](https://github.com/Ms-Crocus/mental-health-chatbot.git)
-    cd mental-health-chatbot
-    ```
-
-2.  **Gerekli kütüphaneleri yükleyin:**
-    Proje için bir `requirements.txt` dosyası oluşturmanız tavsiye edilir.
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **API Anahtarınızı ayarlayın:**
-    Proje kök dizininde `.env` adında bir dosya oluşturun ve içine Google Gemini API anahtarınızı ekleyin:
-    ```
-    GEMINI_API_KEY="BURAYA_API_ANAHTARINIZI_GIRIN"
-    ```
-    *(Not: `.gitignore` dosyanıza `.env` dosyasını eklemeyi unutmayın!)*
-
-4.  **Uygulamayı çalıştırın:**
-    (Gradio uygulamanızı çalıştıran Python dosyasının adını varsayarak, örn: `app.py`)
-    ```bash
-    python app.py
-    ```
-    Uygulama başladığında size yerel bir URL (örn: `http://127.0.0.1:7860`) verecektir.
-
-
-
-
-6. 📦 Gerekli Kütüphaneler (requirements.txt)
-
-
-   Projenin çalışması için gereken ana kütüphaneler:
-
--   `langchain-google-genai`
--   `langchain-core`
--   `langchain-text-splitters`
--   `langchain-community`
--   `faiss-cpu` (veya GPU versiyonu)
--   `gradio`
--   `sentence-transformers` (all-MiniLM-L6-v2 için)
+Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
