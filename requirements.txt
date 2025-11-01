@@ -1,0 +1,12 @@
+# Bu dosya, projenin çalışması için gereken Python kütüphanelerini listeler.
+# `pip install -r requirements.txt` komutu ile kurulabilir.
+
+langchain-core>=1.0.0
+langchain-text-splitters>=1.0.0
+langchain-google-genai
+langchain-community
+sentence-transformers
+datasets>=2.0
+faiss-cpu>=1.7
+gradio>=4.0
+google-generativeai
